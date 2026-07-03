@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<h2 class="mb-5">
+
+📁 My Albums
+
+</h2>
+
+<div class="row">
+
+{% for album in albums %}
+
+<div class="col-md-3 mb-4">
+
+<div class="card shadow text-center p-4">
+
+<h3>📁</h3>
+
+<h5>{{ album.album_name }}</h5>
+
+<a href="{% url 'album_gallery' album.album_name %}"
+
+class="btn btn-dark">
+
+Open Album
+
+</a>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+{% endblock %}

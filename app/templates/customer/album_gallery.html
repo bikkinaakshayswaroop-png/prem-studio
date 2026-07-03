@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Album Gallery | Prem Studio
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h2 class="fw-bold">📁 {{ album_name }}</h2>
+            <p class="text-muted">
+                Your beautiful memories captured by Prem Studio
+            </p>
+        </div>
+
+        <a href="{% url 'customer_albums' %}"
+           class="btn btn-dark">
+            ← Back to Albums
+        </a>
+
+    </div>
+
+    <div class="row">
+
+        {% for photo in photos %}
+
+        <div class="col-lg-4 col-md-6 mb-4">
+
+            <div class="card shadow border-0 rounded-4 h-100">
+
+                <img src="{{ photo.image.url }}"
+                     class="card-img-top"
+                     style="height:300px; object-fit:cover;">
+
+                <div class="card-body text-center">
+
+                    <h5 class="fw-bold">
+                        {{ photo.title }}
+                    </h5>
+
+                    <small class="text-muted">
+                        Uploaded on {{ photo.uploaded_at|date:"d M Y" }}
+                    </small>
+
+                    <div class="d-grid gap-2 mt-3">
+
+                        <a href="{{ photo.image.url }}"
+                           target="_blank"
+                           class="btn btn-primary">
+                            👁 View Image
+                        </a>
+
+                        <a href="{{ photo.image.url }}"
+                           download
+                           class="btn btn-outline-dark">
+                            ⬇ Download
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="col-12">
+
+            <div class="alert alert-warning text-center">
+
+                <h4>No Photos Available</h4>
+
+                <p>
+                    No photos found in this album.
+                </p>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

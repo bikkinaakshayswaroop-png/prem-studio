@@ -1,0 +1,268 @@
+{% extends 'adminpanel/base.html' %}
+
+{% block title %}
+Gallery Manager
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <hr>
+
+<h3 class="mb-3">📁 Albums</h3>
+
+<div class="row" id="photoContainer"></div>
+
+{% for album in albums %}
+
+<div class="col-md-3 mb-3">
+
+    <div class="card shadow">
+
+        <div class="card-body text-center">
+
+            <h5>📁 {{ album.album_name }}</h5>
+
+            <p>
+                👤 {{ album.user__username }}
+            </p>
+
+            <span class="badge bg-primary">
+
+                {{ album.total }} Photos
+
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% empty %}
+
+<p>No Albums Found</p>
+
+{% endfor %}
+
+</div>
+
+<hr>
+
+    <h2 class="mb-4">📷 Gallery Manager</h2>
+    <div class="row mb-4">
+
+    <div class="col-md-6">
+
+        <input
+            type="text"
+            id="searchInput"
+            class="form-control"
+            placeholder="🔍 Search Customer, Album or Photo">
+
+    </div>
+
+</div>
+
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Upload Form -->
+
+    <div class="card shadow mb-4">
+
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Upload Gallery Photos</h5>
+        </div>
+
+        <div class="card-body">
+
+            <form method="POST" enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Customer
+                    </label>
+
+                    <select name="user"
+                            class="form-control"
+                            required>
+
+                        {% for user in users %}
+
+                        <option value="{{ user.id }}">
+                            {{ user.username }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Album Name
+                    </label>
+
+                    <input
+                        type="text"
+                        name="album_name"
+                        class="form-control"
+                        placeholder="Wedding / Reception / Birthday"
+                        required>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Photo Title
+                    </label>
+
+                    <input
+                        type="text"
+                        name="title"
+                        class="form-control"
+                        placeholder="Bride Entry, Stage Photos..."
+                        required>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Select Images
+                    </label>
+
+                    <input
+                        type="file"
+                        name="images"
+                        class="form-control"
+                        multiple
+                        required>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn btn-success w-100">
+
+                    📤 Upload Photos
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <h3 class="mb-4">
+        Uploaded Photos
+    </h3>
+
+    <div class="row" id="albumContainer"></div>
+
+        {% for photo in photos %}
+
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+
+            <div class="card shadow h-100">
+
+                <img
+                    src="{{ photo.image.url }}"
+                    class="card-img-top"
+                    style="height:220px; object-fit:cover;">
+
+                <div class="card-body">
+
+                    <h6>
+                        {{ photo.title }}
+                    </h6>
+
+                    <p class="mb-1">
+
+                        👤
+                        {{ photo.user.username }}
+
+                    </p>
+
+                    <p class="mb-2 text-primary">
+
+                        📁
+                        {{ photo.album_name }}
+
+                    </p>
+
+                    <small class="text-muted">
+
+                        {{ photo.uploaded_at }}
+
+                    </small>
+                    <br><br>
+             
+               </a>
+
+                </div>
+
+                <div class="card-footer bg-white">
+
+                    <div class="d-flex justify-content-between">
+
+                       <a
+                           href="{% url 'edit_photo' photo.id %}"
+                           class="btn btn-warning btn-sm">
+
+                         ✏ Edit
+
+                         </a>
+
+                        <a
+                            href="{% url 'delete_photo' photo.id %}"
+                            class="btn btn-danger btn-sm"
+                            onclick="return confirm('Delete this photo?')">
+
+                            🗑 Delete
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="col-12">
+
+            <div class="alert alert-info">
+
+                No Photos Uploaded Yet.
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

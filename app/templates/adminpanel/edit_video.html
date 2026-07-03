@@ -1,0 +1,82 @@
+{% extends 'adminpanel/base.html' %}
+
+{% block title %}
+Edit Video
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-4">
+
+<div class="card shadow">
+
+<div class="card-header bg-warning">
+
+<h4>🎥 Edit Video</h4>
+
+</div>
+
+<div class="card-body">
+
+<form method="POST" enctype="multipart/form-data">
+
+{% csrf_token %}
+
+<div class="mb-3">
+
+<label>Video Title</label>
+
+<input
+type="text"
+name="title"
+value="{{ video.title }}"
+class="form-control">
+
+</div>
+
+<div class="mb-3">
+
+<label>Current Video</label>
+
+<video controls
+style="width:100%;max-height:350px;">
+
+<source src="{{ video.video.url }}">
+
+</video>
+
+</div>
+
+<div class="mb-3">
+
+<label>Replace Video</label>
+
+<input
+type="file"
+name="video"
+class="form-control">
+
+</div>
+
+<button class="btn btn-success">
+
+💾 Save Changes
+
+</button>
+
+<a href="{% url 'video_manager' %}"
+class="btn btn-secondary">
+
+Cancel
+
+</a>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

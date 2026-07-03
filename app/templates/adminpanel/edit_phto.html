@@ -1,0 +1,96 @@
+{% extends 'adminpanel/base.html' %}
+
+{% block title %}
+Edit Photo
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-4">
+
+<div class="card shadow">
+
+<div class="card-header bg-warning">
+
+<h4>Edit Photo</h4>
+
+</div>
+
+<div class="card-body">
+
+<form method="POST" enctype="multipart/form-data">
+
+{% csrf_token %}
+
+<div class="mb-3">
+
+<label>Photo Title</label>
+
+<input
+type="text"
+name="title"
+value="{{ photo.title }}"
+class="form-control">
+
+</div>
+
+<div class="mb-3">
+
+<label>Album Name</label>
+
+<input
+type="text"
+name="album_name"
+value="{{ photo.album_name }}"
+class="form-control">
+
+</div>
+
+<div class="mb-3">
+
+<label>Current Photo</label>
+
+<br>
+
+<img
+src="{{ photo.image.url }}"
+width="250"
+class="img-thumbnail">
+
+</div>
+
+<div class="mb-3">
+
+<label>Change Photo</label>
+
+<input
+type="file"
+name="image"
+class="form-control">
+
+</div>
+
+<button
+class="btn btn-success">
+
+💾 Save Changes
+
+</button>
+
+<a
+href="{% url 'gallery_manager' %}"
+class="btn btn-secondary">
+
+Cancel
+
+</a>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

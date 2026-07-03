@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Dashboard | Prem Studio
+{% endblock %}
+
+{% block content %}
+
+<section class="container py-5">
+
+    <h2 class="mb-5">
+        👋 Welcome, {{ request.user.username }}
+    </h2>
+
+    <div class="row g-4">
+
+        <!-- My Bookings -->
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 p-4 text-center h-100">
+                <h1>📅</h1>
+                <h5>My Bookings</h5>
+                <h2>{{ total_bookings }}</h2>
+                <p>Total Bookings</p>
+
+                <a href="{% url 'my_bookings' %}"
+                   class="btn btn-dark mt-3">
+                     View Bookings
+                </a>
+            </div>
+        </div>
+
+        <!-- My Gallery -->
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 p-4 text-center h-100">
+                <h1>📷</h1>
+                <h5>My Gallery</h5>
+                <h2>{{ total_photos }}</h2>
+                <p>Photos Uploaded</p>
+
+                <a href="{% url 'customer_albums' %}"
+                   class="btn btn-dark mt-3">
+                    Open Gallery
+                </a>
+            </div>
+        </div>
+
+        <!-- My Videos -->
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 p-4 text-center h-100">
+                <h1>🎥</h1>
+                <h5>My Videos</h5>
+                <h2>{{ total_videos }}</h2>
+                <p>Videos Uploaded</p>
+
+                <a href="{% url 'customer_videos' %}"
+                   class="btn btn-dark mt-3">
+                    Open Videos
+                </a>
+            </div>
+        </div>
+
+        <!-- Download Album -->
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 p-4 text-center h-100">
+                <h1>📥</h1>
+                <h5>Download Album</h5>
+
+                <a href="{% url 'download_album' %}"
+                   class="btn btn-success mt-3">
+                    Download ZIP
+                </a>
+            </div>
+        </div>
+
+        <!-- Profile -->
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 p-4 text-center h-100">
+                <h1>👤</h1>
+                <h5>My Profile</h5>
+
+                <a href="{% url 'profile' %}"
+                   class="btn btn-primary mt-3">
+                    View Profile
+                </a>
+            </div>
+        </div>
+
+        <!-- Logout -->
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 p-4 text-center h-100">
+                <h1>🚪</h1>
+                <h5>Logout</h5>
+
+                <a href="/logout/"
+                   class="btn btn-danger mt-3">
+                    Logout
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

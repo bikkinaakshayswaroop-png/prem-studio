@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Book Your Shoot | Prem Studio
+{% endblock %}
+
+{% block content %}
+
+<section class="booking-page py-5">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="booking-card">
+                    <div class="container mt-5">
+
+    <div id="calendar"></div>
+
+</div>
+<div class="container mt-5">
+
+    <div id="calendar"></div>
+
+</div>
+
+<div class="container mt-5">
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button class="btn btn-dark">
+
+            Book Now
+
+        </button>
+
+    </form>
+
+</div>
+                    <h2 class="text-center mb-3">
+                        Book Your Shoot
+                    </h2>
+
+                    <p class="text-center text-muted mb-5">
+                        Fill in your details and we'll contact you shortly.
+                    </p>
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+                                {{ form.full_name }}
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                {{ form.phone }}
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                {{ form.email }}
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                {{ form.event_type }}
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                {{ form.event_date }}
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                {{ form.location }}
+                            </div>
+
+                            <div class="col-12 mb-4">
+                                {{ form.message }}
+                            </div>
+
+                        </div>
+
+                        <button class="btn btn-warning w-100 py-3">
+                            Book Now
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

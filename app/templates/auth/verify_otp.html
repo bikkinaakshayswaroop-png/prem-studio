@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Verify OTP
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-5">
+
+            <div class="card shadow p-4">
+
+                <h2 class="text-center mb-4">
+
+                    Verify OTP
+
+                </h2>
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    <input
+                        type="text"
+                        name="otp"
+                        class="form-control mb-3"
+                        placeholder="Enter 6-digit OTP"
+                        required
+                    >
+
+                    <button class="btn btn-dark w-100">
+
+                        Verify OTP
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

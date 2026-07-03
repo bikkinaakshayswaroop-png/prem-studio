@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Videos | Prem Studio
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">🎥 My Videos</h2>
+        <p class="text-muted">
+            Your cinematic memories by Prem Studio
+        </p>
+    </div>
+
+    <div class="row">
+
+        {% for video in videos %}
+
+        <div class="col-lg-6 mb-4">
+
+            <div class="card shadow border-0 rounded-4">
+
+                <div class="card-body">
+
+                    <h5 class="fw-bold text-center mb-3">
+                        {{ video.title }}
+                    </h5>
+
+                    <video
+                        width="100%"
+                        height="320"
+                        controls
+                        class="rounded">
+
+                        <source src="{{ video.video.url }}" type="video/mp4">
+
+                        Your browser does not support the video tag.
+
+                    </video>
+
+                    <a href="{{ video.video.url }}"
+                       download
+                       class="btn btn-dark w-100 mt-3">
+                        📥 Download Video
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="col-12">
+
+            <div class="alert alert-warning text-center p-5">
+
+                <h4>No Videos Uploaded</h4>
+
+                <p>
+                    Your photographer hasn't uploaded your videos yet.
+                </p>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

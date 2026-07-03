@@ -1,0 +1,46 @@
+{% extends 'adminpanel/base.html' %}
+
+{% block title %}
+Upload Gallery
+{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">📷 Upload Gallery</h2>
+
+<div class="card p-4">
+
+    <h5>{{ booking.full_name }}</h5>
+    <p>{{ booking.event_type }} | {{ booking.event_date }}</p>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+       <div class="mb-3">
+    {{ form.album_name.label_tag }}
+    {{ form.album_name }}
+</div>
+
+<div class="mb-3">
+    {{ form.title.label_tag }}
+    {{ form.title }}
+</div>
+
+<div class="mb-3">
+    {{ form.image.label_tag }}
+    {{ form.image }}
+</div>
+
+        {{ form.as_p }}
+
+        <button type="submit"
+                class="btn btn-success">
+            Upload
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

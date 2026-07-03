@@ -1,0 +1,614 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Home | Prem Studio
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section id="home" class="hero">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <!-- Left Side -->
+            <div class="col-lg-6">
+
+                <span class="hero-tag">
+                    PREM STUDIO
+                </span>
+
+                <h1 class="hero-title">
+                    Capturing <br>
+                    Timeless <br>
+                    Memories
+                </h1>
+
+                <p class="hero-text">
+                    Wedding Photography, Pre-Wedding, Cinematic Films,
+                    Birthday Events and Premium Photography Services.
+                </p>
+
+            <div class="mt-4 d-flex flex-wrap gap-3">
+
+    <a href="{% url 'booking' %}" class="btn hero-btn">
+        📅 Book Your Shoot
+    </a>
+
+    <a href="{% url 'login' %}" class="btn btn-primary">
+        👤 Customer Login
+    </a>
+
+    <a href="{% url 'register' %}" class="btn btn-success">
+        📝 Register
+    </a>
+
+    <a href="#gallery" class="btn btn-outline-dark">
+        🖼 View Gallery
+    </a>
+
+</div>
+            </div>
+
+            <!-- Right Side -->
+            <div class="col-lg-6 text-center">
+
+                <img src="{% static 'images/hero.jpg' %}" alt="Wedding" class="hero-image">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= CONTACT INFO ================= -->
+
+<section class="contact-strip">
+
+    <div class="container">
+
+        <div class="row text-center">
+
+            <div class="col-md-3 mb-4">
+                <h5>📞 Call Us</h5>
+                <p>+91 70134 46177</p>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <h5>📧 Email</h5>
+                <p>premstudio@gmail.com</p>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <h5>📍 Location</h5>
+                <p>Kattamuru, Andhra Pradesh</p>
+            </div><!-- ================= CONTACT ================= -->
+
+<section id="contact" class="contact-section">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-tag">CONTACT US</span>
+
+            <h2 class="section-title">
+                Let's Create Beautiful Memories Together
+            </h2>
+
+            <p class="section-text">
+                Contact us today to book your special event.
+            </p>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-5">
+
+                <div class="contact-card">
+
+                    <h3>Prem Studio</h3>
+
+                    <hr>
+
+                    <p>📞 <strong>Phone:</strong> +91 7013446177</p>
+
+                    <p>📧 <strong>Email:</strong> premstudio@gmail.com</p>
+
+                    <p>📍 <strong>Address:</strong> Kakinada, Andhra Pradesh</p>
+
+                    <p>🕒 <strong>Working Hours:</strong> 9:00 AM – 8:00 PM</p>
+
+                    <div class="mt-4">
+
+                        <a href="https://wa.me/917013446177"
+                           target="_blank"
+                           class="btn btn-success me-2">
+                            💬 WhatsApp
+                        </a>
+
+                        <a href="tel:+917013446177"
+                           class="btn btn-primary">
+                            📞 Call Now
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-7">
+
+                <div class="map-box">
+
+                    <iframe
+                        src="https://www.google.com/maps?q=Kakinada&output=embed"
+                        width="100%"
+                        height="420"
+                        style="border:0;border-radius:20px;"
+                        loading="lazy">
+                    </iframe>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+            <div class="col-md-3 mb-4">
+                <h5>🕒 Working Hours</h5>
+                <p>9:00 AM – 8:00 PM</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= PORTFOLIO ================= -->
+
+<section id="gallery" class="portfolio">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<span class="section-tag">
+OUR PORTFOLIO
+</span>
+
+<h2 class="section-title">
+Our Recent Works
+</h2>
+
+<p class="section-text">
+Some Beautiful Moments Captured By Prem Studio
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-4">
+
+<div class="portfolio-card">
+
+<img src="{% static 'images/wedding.jpg' %}" class="img-fluid">
+
+<div class="portfolio-overlay">
+
+<h4>Wedding Shoot</h4>
+
+<p>Traditional Wedding</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="portfolio-card">
+
+<img src="{% static 'images/prewedding.jpg' %}" class="img-fluid">
+<div class="portfolio-overlay">
+
+<h4>Pre Wedding</h4>
+
+<p>Outdoor Photography</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="portfolio-card">
+
+<img src="{% static 'images/cinematic.jpg' %}" class="img-fluid">
+<div class="portfolio-overlay">
+
+<h4>Cinematic</h4>
+
+<p>Premium Film</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-6">
+
+<div class="portfolio-card">
+
+<img src="{% static 'images/hero.jpg' %}" class="img-fluid">
+<div class="portfolio-overlay">
+
+<h4>Reception</h4>
+
+<p>Premium Coverage</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-6">
+
+<div class="portfolio-card">
+
+<img src="{% static 'images/wedding.jpg' %}" class="img-fluid">
+<div class="portfolio-overlay">
+
+<h4>Birthday Event</h4>
+
+<p>Kids Photography</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="text-center mt-5">
+
+    <a href="{% url 'gallery' %}" class="gallery-btn">
+        View Complete Gallery →
+    </a>
+
+</div>
+
+</div>
+
+</section>
+    <!-- WHY CHOOSE US -->
+
+<section class="why-us py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <h6 class="section-tag">WHY CHOOSE US</h6>
+            <h2 class="section-title">Why Prem Studio?</h2>
+            <p class="section-text">
+                We don't just take photos. We preserve emotions and memories forever.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-3">
+                <div class="why-card">
+                    <div class="icon">📷</div>
+                    <h4>Premium Equipment</h4>
+                    <p>Latest Sony & Canon cameras for stunning quality.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="why-card">
+                    <div class="icon">🏆</div>
+                    <h4>Experienced Team</h4>
+                    <p>Creative photographers and professional editors.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="why-card">
+                    <div class="icon">⚡</div>
+                    <h4>Fast Delivery</h4>
+                    <p>Quick editing and timely delivery of albums.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="why-card">
+                    <div class="icon">❤️</div>
+                    <h4>Trusted Studio</h4>
+                    <p>Hundreds of happy families trust Prem Studio.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+<!-- ================= PREMIUM PACKAGES ================= -->
+
+<section id="packages" class="packages">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-tag">OUR PACKAGES</span>
+
+            <h2 class="section-title">
+                Choose Your Perfect Package
+            </h2>
+
+            <p class="section-text">
+                Affordable Photography Packages for Every Occasion.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Silver -->
+            <div class="col-lg-4">
+
+                <div class="package-card">
+
+                    <h3>🥉 Silver</h3>
+
+                    <h1>₹15,999</h1>
+
+                    <ul>
+                        <li>✅ 1 Photographer</li>
+                        <li>✅ 100 Edited Photos</li>
+                        <li>✅ HD Album</li>
+                        <li>✅ Online Gallery</li>
+                    </ul>
+
+                    <a href="{% url 'booking' %}" class="package-btn">
+                        Book Now
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Gold -->
+
+            <div class="col-lg-4">
+
+                <div class="package-card featured">
+
+                    <span class="badge">⭐ MOST POPULAR</span>
+
+                    <h3>🥇 Gold</h3>
+
+                    <h1>₹29,999</h1>
+
+                    <ul>
+                        <li>✅ 2 Photographers</li>
+                        <li>✅ 1 Cinematographer</li>
+                        <li>✅ Drone Coverage</li>
+                        <li>✅ Premium Album</li>
+                        <li>✅ Teaser Video</li>
+                    </ul>
+
+                    <a href="{% url 'booking' %}" class="package-btn">
+                        Book Now
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Platinum -->
+
+            <div class="col-lg-4">
+
+                <div class="package-card">
+
+                    <h3>💎 Platinum</h3>
+
+                    <h1>₹49,999</h1>
+
+                    <ul>
+                        <li>✅ Full Team</li>
+                        <li>✅ Drone + Crane</li>
+                        <li>✅ 4K Cinematic Film</li>
+                        <li>✅ Luxury Album</li>
+                        <li>✅ Same Day Edit</li>
+                    </ul>
+
+                    <a href="{% url 'booking' %}" class="package-btn">
+                        Book Now
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BOOKING ================= -->
+<form method="POST" class="booking-form">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <div class="text-center mt-3">
+
+        <button type="submit" class="submit-btn">
+            Book Now
+        </button>
+
+    </div>
+
+</form>
+
+
+</section>
+
+<!-- ================= SERVICES ================= -->
+
+<section id="services" class="services">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-tag">
+                OUR SERVICES
+            </span>
+
+            <h2 class="section-title">
+                We Capture Every Beautiful Moment
+            </h2>
+
+            <p class="section-text">
+                Professional Photography & Cinematic Services for Every Special Occasion.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="service-card">
+
+                    <div class="service-icon">📸</div>
+
+                    <h4>Wedding Photography</h4>
+
+                    <p>
+                        Traditional, Candid and Luxury Wedding Photography
+                        with Premium Albums.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="service-card">
+
+                    <div class="service-icon">💍</div>
+
+                    <h4>Pre Wedding</h4>
+
+                    <p>
+                        Romantic Outdoor Shoots with Creative Concepts
+                        and Cinematic Style.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="service-card">
+
+                    <div class="service-icon">🎥</div>
+
+                    <h4>Cinematic Films</h4>
+
+                    <p>
+                        Beautiful Wedding Highlights,
+                        Teasers and Full Cinematic Movies.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="service-card">
+
+                    <div class="service-icon">🎂</div>
+
+                    <h4>Birthday Events</h4>
+
+                    <p>
+                        Capture Every Smile and Celebration
+                        with Professional Photography.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="service-card">
+
+                    <div class="service-icon">🚁</div>
+
+                    <h4>Drone Photography</h4>
+
+                    <p>
+                        Stunning Drone Shots for Weddings,
+                        Receptions and Outdoor Events.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="service-card">
+
+                    <div class="service-icon">🎉</div>
+
+                    <h4>All Events</h4>
+
+                    <p>
+                        Engagements, Receptions,
+                        Naming Ceremonies, Functions and More.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+{% endblock %}

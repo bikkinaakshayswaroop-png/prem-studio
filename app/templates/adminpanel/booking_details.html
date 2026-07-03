@@ -1,0 +1,72 @@
+{% extends 'adminpanel/base.html' %}
+
+{% block title %}
+Booking Details
+{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">📋 Booking Details</h2>
+<a href="{% url 'upload_gallery' booking.id %}"
+   class="btn btn-success mb-3">
+    📷 Upload Gallery
+</a>
+
+<div class="card shadow">
+
+    <div class="card-body">
+
+        <table class="table">
+
+            <tr>
+                <th>Customer</th>
+                <td>{{ booking.full_name }}</td>
+            </tr>
+
+            <tr>
+                <th>Phone</th>
+                <td>{{ booking.phone }}</td>
+            </tr>
+
+            <tr>
+                <th>Email</th>
+                <td>{{ booking.email }}</td>
+            </tr>
+
+            <tr>
+                <th>Event</th>
+                <td>{{ booking.event_type }}</td>
+            </tr>
+
+            <tr>
+                <th>Event Date</th>
+                <td>{{ booking.event_date }}</td>
+            </tr>
+
+            <tr>
+                <th>Location</th>
+                <td>{{ booking.location }}</td>
+            </tr>
+
+            <tr>
+                <th>Message</th>
+                <td>{{ booking.message }}</td>
+            </tr>
+
+            <tr>
+                <th>Status</th>
+                <td>{{ booking.status }}</td>
+            </tr>
+
+        </table>
+
+        <a href="{% url 'admin_bookings' %}"
+           class="btn btn-secondary">
+            ← Back
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

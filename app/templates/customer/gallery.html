@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+My Gallery | Prem Studio
+{% endblock %}
+
+{% block content %}
+
+<!-- Lightbox CSS -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+
+<section class="py-5">
+
+<div class="container">
+
+    <div class="text-center mb-5">
+
+        <span class="section-tag">
+            MY GALLERY
+        </span>
+
+        <h1 class="fw-bold display-5">
+            📸 My Beautiful Memories
+        </h1>
+
+        <p class="text-muted">
+            Every picture tells a beautiful story captured by Prem Studio.
+        </p>
+
+    </div>
+
+    <div class="row g-4">
+
+        {% for photo in photos %}
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden gallery-card">
+
+                <a href="{{ photo.image.url }}"
+                   data-lightbox="gallery"
+                   data-title="{{ photo.title }}">
+
+                    <img src="{{ photo.image.url }}"
+                         class="card-img-top gallery-img">
+
+                </a>
+
+                <div class="card-body text-center">
+
+                    <h5 class="fw-bold">
+
+                        {{ photo.title }}
+
+                    </h5>
+
+                    <p class="text-muted">
+
+                        📁 {{ photo.album_name }}
+
+                    </p>
+
+                    <small class="text-secondary">
+
+                        Uploaded:
+                        {{ photo.uploaded_at|date:"d M Y" }}
+
+                    </small>
+
+                    <div class="d-grid gap-2 mt-4">
+
+                        <a href="{{ photo.image.url }}"
+                           data-lightbox="gallery"
+                           data-title="{{ photo.title }}"
+                           class="btn btn-dark">
+
+                            👁 View Full Image
+
+                        </a>
+
+                        <a href="{{ photo.image.url }}"
+                           download
+                           class="btn btn-outline-dark">
+
+                            ⬇ Download
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="col-12">
+
+            <div class="alert alert-warning text-center p-5 rounded-4">
+
+                <h3>
+
+                    📷 No Photos Available
+
+                </h3>
+
+                <p>
+
+                    Your photographer hasn't uploaded your gallery yet.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- Lightbox JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+<style>
+
+.gallery-card{
+
+transition:.4s;
+
+}
+
+.gallery-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 20px 50px rgba(0,0,0,.18);
+
+}
+
+.gallery-img{
+
+height:320px;
+
+object-fit:cover;
+
+transition:.5s;
+
+}
+
+.gallery-card:hover .gallery-img{
+
+transform:scale(1.08);
+
+}
+
+</style>
+
+{% endblock %}

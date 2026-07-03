@@ -1,0 +1,57 @@
+{% extends 'adminpanel/base.html' %}
+
+{% block title %}
+{{ album_name }}
+{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">📁 {{ album_name }}</h2>
+
+<div class="row">
+
+{% for photo in photos %}
+
+<div class="col-md-3 mb-4">
+
+    <div class="card">
+
+        <img src="{{ photo.image.url }}"
+             class="card-img-top"
+             style="height:250px;object-fit:cover;">
+
+        <div class="card-body">
+
+            <h6>{{ photo.title }}</h6>
+
+            <p>👤 {{ photo.user.username }}</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% empty %}
+
+<div class="col-12">
+
+    <div class="alert alert-warning">
+
+        No photos found in this album.
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<a href="{% url 'gallery_manager' %}" class="btn btn-secondary mt-3">
+
+← Back to Gallery
+
+</a>
+
+{% endblock %}
